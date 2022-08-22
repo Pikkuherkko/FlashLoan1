@@ -4,4 +4,4 @@ Works at least in Polygon Mainnet. Deploy to remix and GO!
 First the contract will check if there are profitable trades. If yes, it takes a flash loan from AaveV2 (polygon) and executes the trades.
 When deploying the contract to Remix, it needs addresses. I have collected some example addresses to constants.js. 
 
-Next I should make a script that automates this process
+Next I should make a script that automates this process (edit. did it, not sharing). However, I found out that this won't be profitable as the arbitrage script is too simple. UniswapV2 forks are dying as well. 
