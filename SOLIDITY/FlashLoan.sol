@@ -132,19 +132,9 @@ contract FlashLoanArbitrage is FlashLoanReceiverBase {
         override
         returns (bool)
     {
-        
-        //
-        // This contract now has the funds requested.
-        // Your logic goes here.
-        //
-        
-        // At the end of your logic above, this contract owes
-        // the flashloaned amounts + premiums.
-        // Therefore ensure your contract has enough to repay
-        // these amounts.
+     
         makeArbitrage();
-        
-        // Approve the LendingPool contract allowance to *pull* the owed amount
+       
         for (uint i = 0; i < assets.length; i++) {
             uint amountOwing = amounts[i].add(premiums[i]);
             IERC20(assets[i]).approve(address(LENDING_POOL), amountOwing);
@@ -177,10 +167,7 @@ contract FlashLoanArbitrage is FlashLoanReceiverBase {
             referralCode
         );
     }
-
-    /*
-     *  Flash loan wei amount worth of `_asset`
-     */
+    
     function flashloan(address _asset, uint256 _amount) public onlyOwner {
         bytes memory data = "";
         uint amount = _amount;
